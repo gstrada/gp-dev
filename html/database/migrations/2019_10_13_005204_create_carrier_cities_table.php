@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateCarrierCitiesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('carrier_cities', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('carrier_state_id')->unsigned();
+            $table->unsignedBigInteger('city_id')->nullable();
+            $table->double('price')->default(0);
+            $table->double('free_if_order_above')->nullable()->default(null);
+            $table->boolean('enabled')->default(1);
+            $table->boolean('removed')->default(0);
+            $table->timestamps();
+            $table->foreign('carrier_state_id')->references('id')->on('carrier_states')->onDelete('cascade');
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('carrier_cities');
+    }
+}

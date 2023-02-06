@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Backoffice Golden">
+    <meta name="keywords" content="">
+    <meta name="author" content="Goldenpack">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <base href="/">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="/favicon/apple-icon-57x57.pn">
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link href="/assets/fonts/material-outline-icons/styles.css" rel="stylesheet">
+    <link href="/assets/fonts/meteocons/style.css" rel="stylesheet">
+    <noscript id="jss-insertion-point"></noscript>
+    <title>Goldenpack</title>
+    <style>#fuse-splash-screen {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #2d323d;
+        z-index: 99999;
+        pointer-events: none
+    }
+
+    #fuse-splash-screen .center {
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%)
+    }
+
+    #fuse-splash-screen .logo {
+        width: 128px;
+        margin: 0 auto
+    }
+
+    #fuse-splash-screen .logo img {
+        filter: drop-shadow(0 10px 6px rgba(0, 0, 0, .2))
+    }
+
+    #fuse-splash-screen .spinner-wrapper {
+        display: block;
+        position: relative;
+        width: 100%;
+        min-height: 100px;
+        height: 100px
+    }
+
+    #fuse-splash-screen .spinner-wrapper .spinner {
+        position: absolute;
+        overflow: hidden;
+        left: 50%;
+        margin-left: -50px;
+        animation: outer-rotate 2.91667s linear infinite
+    }
+
+    #fuse-splash-screen .spinner-wrapper .spinner .inner {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        animation: sporadic-rotate 5.25s cubic-bezier(.35, 0, .25, 1) infinite
+    }
+
+    #fuse-splash-screen .spinner-wrapper .spinner .inner .gap {
+        position: absolute;
+        left: 49px;
+        right: 49px;
+        top: 0;
+        bottom: 0;
+        border-top: 10px solid;
+        box-sizing: border-box
+    }
+
+    #fuse-splash-screen .spinner-wrapper .spinner .inner .left, #fuse-splash-screen .spinner-wrapper .spinner .inner .right {
+        position: absolute;
+        top: 0;
+        height: 100px;
+        width: 50px;
+        overflow: hidden
+    }
+
+    #fuse-splash-screen .spinner-wrapper .spinner .inner .left .half-circle, #fuse-splash-screen .spinner-wrapper .spinner .inner .right .half-circle {
+        position: absolute;
+        top: 0;
+        width: 100px;
+        height: 100px;
+        box-sizing: border-box;
+        border: 10px solid #4285f4;
+        border-bottom-color: transparent;
+        border-radius: 50%
+    }
+
+    #fuse-splash-screen .spinner-wrapper .spinner .inner .left {
+        left: 0
+    }
+
+    #fuse-splash-screen .spinner-wrapper .spinner .inner .left .half-circle {
+        left: 0;
+        border-right-color: transparent;
+        animation: left-wobble 1.3125s cubic-bezier(.35, 0, .25, 1) infinite;
+        -webkit-animation: left-wobble 1.3125s cubic-bezier(.35, 0, .25, 1) infinite
+    }
+
+    #fuse-splash-screen .spinner-wrapper .spinner .inner .right {
+        right: 0
+    }
+
+    #fuse-splash-screen .spinner-wrapper .spinner .inner .right .half-circle {
+        right: 0;
+        border-left-color: transparent;
+        animation: right-wobble 1.3125s cubic-bezier(.35, 0, .25, 1) infinite;
+        -webkit-animation: right-wobble 1.3125s cubic-bezier(.35, 0, .25, 1) infinite
+    }
+
+    @keyframes outer-rotate {
+        0% {
+            transform: rotate(0) scale(.5)
+        }
+        100% {
+            transform: rotate(360deg) scale(.5)
+        }
+    }
+
+    @keyframes left-wobble {
+        0%, 100% {
+            transform: rotate(130deg)
+        }
+        50% {
+            transform: rotate(-5deg)
+        }
+    }
+
+    @keyframes right-wobble {
+        0%, 100% {
+            transform: rotate(-130deg)
+        }
+        50% {
+            transform: rotate(5deg)
+        }
+    }
+
+    @keyframes sporadic-rotate {
+        12.5% {
+            transform: rotate(135deg)
+        }
+        25% {
+            transform: rotate(270deg)
+        }
+        37.5% {
+            transform: rotate(405deg)
+        }
+        50% {
+            transform: rotate(540deg)
+        }
+        62.5% {
+            transform: rotate(675deg)
+        }
+        75% {
+            transform: rotate(810deg)
+        }
+        87.5% {
+            transform: rotate(945deg)
+        }
+        100% {
+            transform: rotate(1080deg)
+        }
+    }</style>
+    <link href="/static/css/4.99e6459f.chunk.css" rel="stylesheet">
+    <link href="/static/css/main.c6ed90cd.chunk.css" rel="stylesheet">
+</head>
+<body>
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="root" class="flex">
+    <div id="fuse-splash-screen">
+        <div class="center">
+            <div class="logo"><img width="128" src="assets/images/logos/icon.png" alt="logo"></div>
+            <div class="spinner-wrapper">
+                <div class="spinner">
+                    <div class="inner">
+                        <div class="gap"></div>
+                        <div class="left">
+                            <div class="half-circle"></div>
+                        </div>
+                        <div class="right">
+                            <div class="half-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>!function (i) {
+    function e(e) {
+        for (var r, t, n = e[0], o = e[1], a = e[2], u = 0, c = []; u < n.length; u++) t = n[u], Object.prototype.hasOwnProperty.call(l, t) && l[t] && c.push(l[t][0]), l[t] = 0;
+        for (r in o) Object.prototype.hasOwnProperty.call(o, r) && (i[r] = o[r]);
+        for (d && d(e); c.length;) c.shift()();
+        return p.push.apply(p, a || []), f()
+    }
+
+    function f() {
+        for (var e, r = 0; r < p.length; r++) {
+            for (var t = p[r], n = !0, o = 1; o < t.length; o++) {
+                var a = t[o];
+                0 !== l[a] && (n = !1)
+            }
+            n && (p.splice(r--, 1), e = s(s.s = t[0]))
+        }
+        return e
+    }
+
+    var t = {}, l = {3: 0}, p = [];
+
+    function s(e) {
+        if (t[e]) return t[e].exports;
+        var r = t[e] = {i: e, l: !1, exports: {}};
+        return i[e].call(r.exports, r, r.exports, s), r.l = !0, r.exports
+    }
+
+    s.e = function (o) {
+        var e = [], t = l[o];
+        if (0 !== t) if (t) e.push(t[2]); else {
+            var r = new Promise(function (e, r) {
+                t = l[o] = [e, r]
+            });
+            e.push(t[2] = r);
+            var n, a = document.createElement("script");
+            a.charset = "utf-8", a.timeout = 120, s.nc && a.setAttribute("nonce", s.nc), a.src = s.p + "static/js/" + ({}[o] || o) + "." + {
+                0: "57b26ee3",
+                1: "98c4dc8a",
+                5: "375444aa",
+                6: "85ae44a0",
+                7: "1a7d2466",
+                8: "53e5e38b",
+                9: "f9b88c07",
+                10: "bba5d4d0",
+                11: "84738ccd",
+                12: "ef951460",
+                13: "b0e96c1b",
+                14: "9cd82d34",
+                15: "17624201",
+                16: "dd26bc13"
+            }[o] + ".chunk.js";
+            var u = new Error;
+            n = function (e) {
+                a.onerror = a.onload = null, clearTimeout(c);
+                var r = l[o];
+                if (0 !== r) {
+                    if (r) {
+                        var t = e && ("load" === e.type ? "missing" : e.type), n = e && e.target && e.target.src;
+                        u.message = "Loading chunk " + o + " failed.\n(" + t + ": " + n + ")", u.name = "ChunkLoadError", u.type = t, u.request = n, r[1](u)
+                    }
+                    l[o] = void 0
+                }
+            };
+            var c = setTimeout(function () {
+                n({type: "timeout", target: a})
+            }, 12e4);
+            a.onerror = a.onload = n, document.head.appendChild(a)
+        }
+        return Promise.all(e)
+    }, s.m = i, s.c = t, s.d = function (e, r, t) {
+        s.o(e, r) || Object.defineProperty(e, r, {enumerable: !0, get: t})
+    }, s.r = function (e) {
+        "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {value: "Module"}), Object.defineProperty(e, "__esModule", {value: !0})
+    }, s.t = function (r, e) {
+        if (1 & e && (r = s(r)), 8 & e) return r;
+        if (4 & e && "object" == typeof r && r && r.__esModule) return r;
+        var t = Object.create(null);
+        if (s.r(t), Object.defineProperty(t, "default", {
+            enumerable: !0,
+            value: r
+        }), 2 & e && "string" != typeof r) for (var n in r) s.d(t, n, function (e) {
+            return r[e]
+        }.bind(null, n));
+        return t
+    }, s.n = function (e) {
+        var r = e && e.__esModule ? function () {
+            return e.default
+        } : function () {
+            return e
+        };
+        return s.d(r, "a", r), r
+    }, s.o = function (e, r) {
+        return Object.prototype.hasOwnProperty.call(e, r)
+    }, s.p = "/", s.oe = function (e) {
+        throw console.error(e), e
+    };
+    var r = window["webpackJsonpfuse-react-app"] = window["webpackJsonpfuse-react-app"] || [], n = r.push.bind(r);
+    r.push = e, r = r.slice();
+    for (var o = 0; o < r.length; o++) e(r[o]);
+    var d = n;
+    f()
+}([])</script>
+<script src="/static/js/4.9183057b.chunk.js"></script>
+<script src="/static/js/main.816b66bb.chunk.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+.ck.ck-content{
+    min-height: 200px;
+    max-height: 200px;
+}
+
+.ck.ck-editor{
+    width: 100% !important;
+}

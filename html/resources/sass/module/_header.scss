@@ -1,0 +1,15 @@
+.header {
+    height: 95px;
+    background-color: $color-white;
+    border-bottom: solid 1px $color-gray-2;
+
+    .navbar {
+        .navbar-brand {
+            min-width: 180px;
+            .logo {
+                display: inline-block;
+                width: 165px;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="66e0628e-4714-4e27-bc47-9ce53866d213" name="smartclient">
+        <fileTransfer accessType="SFTP" host="206.81.7.67" port="22" sshConfigId="ab0ddab2-65a7-4d50-a4e1-723757072bd1" sshConfig="root@206.81.7.67:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
