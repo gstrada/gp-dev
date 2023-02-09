@@ -50,11 +50,13 @@ class prevPastDueNotification extends Command
         foreach($cardsToNotif as $card) {
             $phone = $card->digital_recipient_phone;
             $email = $card->email;
-            if(is_null($phone) || $phone == '--') {
+            //if(is_null($phone) || $phone == '--') {
+                $template = New testCardMail($card);
+                Mail::to($email)->send($template);
                 var_dump($email);
-            } else {
-                var_dump($phone);
-            }
+//            } else {
+//                var_dump($phone);
+//            }
         };
     }
 }

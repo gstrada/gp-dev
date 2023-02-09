@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="SshConfigs">
-    <configs>
-      <sshConfig host="206.81.7.67" id="ab0ddab2-65a7-4d50-a4e1-723757072bd1" keyPath="C:\Users\Guillermo\Downloads\keys\smartclient.key" port="22" nameFormat="DESCRIPTIVE" username="root" />
-    </configs>
-  </component>
-</project>
