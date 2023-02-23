@@ -1107,7 +1107,8 @@ class CardController extends Controller{
             $data = $this->loadPdfData(null, $oCard);
             $strCcMail = "";
             if(!is_null($oCard->digital_cc_email) && $oCard->digital_cc_email != "" ){
-                foreach(json_decode($oCard->digital_cc_email) as $ccMail){
+                $strArr = explode(",", $oCard->digital_cc_email);
+                foreach($strArr as $ccMail){
                     $strCcMail == "" ? $strCcMail .= $ccMail : $strCcMail .= ", ". $ccMail;
                 }
             }
@@ -1140,7 +1141,7 @@ class CardController extends Controller{
                 try {
                     $sheet = $spreadsheet->getActiveSheet();
                     $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
-                    $sheet->setCellValue("A" . ($i + 2), "EL REGALO YA HAN SIDO ENVIADO O PROGRAMADO PARA ENVIAR");
+                    $sheet->setCellValue("A" . ($i + 2), "EL REGALO YA HA SIDO ENVIADO O PROGRAMADO PARA ENVIAR");
                     $writer->save(public_path("excel_files/" . $orderId . ".xlsx"));
                 } catch (\Exception $e) {
                     echo 'Ocurrió un error al intentar abrir el archivo ' . $e;

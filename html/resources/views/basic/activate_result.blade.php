@@ -1,11 +1,24 @@
 @extends('layouts.app')
 
+
+
 @section('scripts')
+
     <script>
+        function play() {
+            document.getElementById('myvideo').play();
+        }
         $( document ).ready(function() {
+            $('#videoModal').modal('toggle')
+
             $('#state').change(function() {
                 $(this).closest("form").submit();
             });
+            play()
+            document.getElementById("myvideo").addEventListener('ended',myHandler,false);
+            function myHandler(e) {
+                $('#videoModal').modal('toggle')
+            }
         });
     </script>
 @endsection
@@ -172,6 +185,52 @@
                 {{--                @endif--}}
             </div>
         </section>
-    @endif
 
+    @endif
+    <!-- CVV Modal -->
+    <div class="modal fade" id="videoModal">
+        <div class="modal-dialog modal-sm d-flex justify-content-center">
+            <div class="modal-content col-sm-12 col-md-4 col-xs-12">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <div class="">
+                        <a href="https://goldenpack.com.ar" style="display: block; border: 0px !important;">
+                            <img border="0" style="display: block; width: 100px;height: auto" src="{{ asset('assets/images/logo/logo-dark.png') }}" alt=""/>
+                        </a>
+                    </div>
+                    <button type="button" class="" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body" id="cvv-modal-body">
+                    <div class="d-flex justify-content-center">
+                        @if($card->orderItem->pack->category->friendly_url != "gastronomia"
+                            || $card->orderItem->pack->category->friendly_url != "estadias"
+                            || $card->orderItem->pack->category->friendly_url != "entretenimiento"
+                            || $card->orderItem->pack->category->friendly_url != "bienestar"
+                            || $card->orderItem->pack->category->friendly_url != "aventura"
+                            || $card->orderItem->pack->category->friendly_url != "random")
+                            <div id="myVideo" >
+                                <div id="videoWrapper">
+                                    <video id="myvideo"  style="width: 100%; height: auto">
+                                        <source src="{{ asset('assets/videos/'.$card->orderItem->pack->category->friendly_url.'.mp4') }}" type="video/mp4">
+                                        Your browser does not support html5 videos
+                                    </video>
+                                </div>
+                            </div>
+                        @else
+                            <div id="myVideo" >
+                                <div id="videoWrapper">
+                                    <video id="myvideo"  style="width: 100%; height: auto">
+                                        <source src="{{ asset('assets/videos/random.mp4') }}" type="video/mp4">
+                                        Your browser does not support html5 videos
+                                    </video>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
